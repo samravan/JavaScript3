@@ -1,5 +1,3 @@
-
-
 const URL = 'https://www.randomuser.me/api';
 
 function requestWithXHR(URL){
