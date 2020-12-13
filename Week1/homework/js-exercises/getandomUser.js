@@ -27,8 +27,8 @@ const axios = require('axios');
 function axiosMethod() {
     axios
     .get('https://www.randomuser.me/api')
-    .then(function(respons) {
-        console.log(respons);
+    .then(function(response) {
+        console.log(response.data);
     })
     .catch(function(error) {
         console.log(error)
