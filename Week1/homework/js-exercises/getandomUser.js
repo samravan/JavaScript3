@@ -14,6 +14,12 @@ function processRequest(e) {
     }
 }
 
+xhr.onerror = function() {
+    if (xhr.status != 200) {
+        alert (`Error ${xhr.status}: ${xhr.statusText}`)
+    }
+}
+
 }
 
 
