@@ -19,6 +19,7 @@ function xhrMethod() {
             image.src = response.message;
             image.style.width = '300px'
             image.style.height = '300px'
+            image.style.margin = '5px'
 
         };
     };
@@ -46,6 +47,7 @@ function axiosMethod() {
         image.src = response.data.message;
         image.style.width = '300px'
         image.style.height = '300px'
+        image.style.margin = '5px'
 
     })
     .catch(function(error) {
