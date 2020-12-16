@@ -1,3 +1,36 @@
-/* 
+/*
   Write here your CSS rules for HackYourRepo!
 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+#header {
+  border: 3px solid black;
+  height: 100px;
+}
+
+.container {
+  margin: 0 10%;
+  margin-top: 20px;
+}
+
+.bottom-box {
+  border: 3px solid red;
+  display: flex;
+  flex-direction: row;
+  height: 400px;
+}
+
+#left-side {
+  border: 3px solid blue;
+  width: 50%;
+}
+
+#right-side {
+  border: 3px solid green;
+  width: 50%;
+}
