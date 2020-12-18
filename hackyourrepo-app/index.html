@@ -22,20 +22,59 @@
   <body>
     <div class="container">
       <section id="header">
-        <select name="" id=""></select>
         <p>HYF Repositories</p>
+        <select class="selectMenu">
+          <option value="0">alumni</option>
+          <option value="1">AngularJS</option>
+          <option value="2">Authentication</option>
+          <option value="3">battleship-api</option>
+          <option value="4"></option>
+          <option value="5"></option>
+          <option value="6"></option>
+          <option value="7"></option>
+          <option value="8"></option>
+          <option value="9"></option>
+        </select>
+
       </section>
       <div class="bottom-box">
         <section id="left-side">
-          <h4>Repository:<span class="details" id="repo-name">SampleRepo1</span></h4>
-          <h4>Description:<span class="details" id="repo-descript">This repository is meant to be a sample</span> </h4>
-          <h4>Fork:<span class="details" id="repo-forks">5</span></h4>
-          <h4>Update:<span class="details" id="repo-update">2020-05-27 12:00:00</span></h4>
+          <div class="card">
+            <table>
+              <tr>
+                <td class="col-left">Repositories:</td>
+                <td class="col-right rep-text"><a href="#">SampleRepo1</a></td>
+              </tr>
+              <tr>
+                <td class="col-left">Description:	</td>
+                <td class="col-right desc-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, iure ipsum? Consequatur sequi esse veritatis in exercitationem quos repellat doloribus earum tempora cumque!</td>
+              </tr>
+              <tr>
+                <td class="col-left">Forks:	</td>
+                <td class="col-right fork-text">5	</td>
+              </tr>
+              <tr>
+                <td class="col-left">Update:	</td>
+                <td class="col-right update-text">2020-05-27 12:00:00	</td>
+              </tr>
 
+          </table>
+            </div>
 
         </section>
         <section id="right-side">
-          <div class="names">Contributors</div>
+          <div id="contributor">Contributors</div>
+          <div class="card small-card">
+            <img src="https://avatars3.githubusercontent.com/u/3985124?v=4" alt="" class="userPhoto" width="50px">
+            <a href="" class="userName">isalga</a>
+            <div class="badge">9</div>
+            </div>
+          <div class="card small-card">
+            <img src="https://avatars3.githubusercontent.com/u/3985124?v=4" alt="" class="userPhoto" width="50px">
+            <a href="" class="userName">isalga</a>
+            <div class="badge">9</div>
+            </div>
+
         </section>
       </div>
     </div>
