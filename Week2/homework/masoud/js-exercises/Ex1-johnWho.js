@@ -1,14 +1,14 @@
-function getAnonName(firstName) {
+const getAnonName = firstName => {
   return new Promise((resolves, rejects) => {
     if (firstName) {
-      resolves(`${firstName} Doe`);
+      resolves(`${firstName} S`);
     } else {
       rejects(new Error("You didn't pass in a first name!"));
     }
   })
 };
 
-const firstName = 'Masoud';
+const firstName = 'Mas';
 getAnonName(firstName).then(response => {
   console.log(response);
 })
