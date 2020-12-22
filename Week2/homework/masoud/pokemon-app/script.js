@@ -11,17 +11,21 @@ function main() {
 
   // Define select element
   const select = document.createElement('select');
+  select.style.display = 'block';
   document.body.appendChild(select);
+
+  //Define image
+  const img = document.createElement('img');
 
   //When button is clicked
   btn.addEventListener('click', () => {
     const url = `https://pokeapi.co/api/v2/pokemon/?limit=20&offset=20`;//Define API URL
-    fetchData(url, select); // Get data from API and insert to DOM
+    fetchData(url, select, img); // Get data from API and insert to DOM
   });
 }
 
 // Add data to DOM
-function addPokemonToDOM(data, select) {
+function addPokemonToDOM(data, select, img) {
 
   //Add list to select tag
   data.results.forEach(element => {
@@ -33,7 +37,6 @@ function addPokemonToDOM(data, select) {
 
   //User selection 
   select.addEventListener('input', () => {
-
     data.results.forEach(element => {
       if (select.value == element.name) {
         const imgURL = element.url;
@@ -42,7 +45,6 @@ function addPokemonToDOM(data, select) {
             return response.json();
           })
           .then(function (myJson) {
-            const img = document.createElement('img');
             img.src = myJson.sprites.back_default;
             document.body.appendChild(img);
           })
@@ -55,13 +57,13 @@ function addPokemonToDOM(data, select) {
 };
 
 //Get data from API by using fetch API
-function fetchData(url, select) {
+function fetchData(url, select, img) {
   fetch(url) // First getting data
     .then(function (response) {
       return response.json();
     })
     .then(function (myJson) {
-      addPokemonToDOM(myJson, select); // Add data to DOM
+      addPokemonToDOM(myJson, select, img); // Add data to DOM
     })
     .catch(function (error) {
       console.log(error);
