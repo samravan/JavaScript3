@@ -9,10 +9,7 @@ function main() {
     btn.addEventListener('click', () => [
         fetchData(url, select)
     ]);
-
-
 }
-
 
 function addPokemonToDOM(data, select) {
     data.results.forEach(element => {
@@ -40,8 +37,6 @@ function addPokemonToDOM(data, select) {
 
         })
     } )
-
-
 }
 
 function fetchData(url, select) {
