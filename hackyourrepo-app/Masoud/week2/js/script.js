@@ -9,7 +9,7 @@ function main() {
   const imgHeader = document.createElement('img');
 
   imgLink.href = '#';
-  imgHeader.src = '../img/hyf.png';
+  imgHeader.src = 'img/hyf.png';
   imgHeader.alt = 'HYF logo';
   document.body.appendChild(header);
   header.appendChild(imgLink);
