@@ -29,7 +29,6 @@ p {
 }
 
 .bottom-box {
-
   display: flex;
   flex-direction: row;
   height: auto;
@@ -76,6 +75,7 @@ p {
 }
 .small-card {
   display: flex;
+  border: 3px solid black;
   justify-content: flex-start;
   align-items: center;
   margin: 0.4rem;

@@ -20,40 +20,76 @@ const elFactory = (type, attributes, ...children) => {
 
   return el
 }
+const container = elFactory('div', {calss: 'container'});
+const header = elFactory('section', {id: 'header'},
+  elFactory('p', {}, 'HYF Repositories'),
+  elFactory('select', {calss: 'selectMenu'}),
+  elFactory('option', {value: ''}, 'alumni'));
+const bottomBox = elFactory('div', {class: 'bottom-box'});
+const leftSide = elFactory('section', {id: 'left-side'},
+  elFactory('div', {calss: 'card'},
+    elFactory('table', {}),
+      elFactory('tr', {},
+        elFactory('td', {class: 'col-left'}, 'Repositories: '),
+        elFactory('td', {class: 'col-right rep-text'}, elFactory('a', {href: '#', class: 'repo-link'}, 'SampleRepo1'))),
+      elFactory('tr', {},
+        elFactory('td', {class: 'col-left'}, 'Description: '),
+        elFactory('td', {class: 'col-right rep-description'}, 'Lorem ipsom')),
+      elFactory('tr', {},
+        elFactory('td', {class: 'col-left'}, 'Forks: '),
+        elFactory('td', {class: 'col-right rep-fork'}, '5')),
+      elFactory('tr', {},
+        elFactory('td', {class: 'col-left'}, 'Update: '),
+        elFactory('td', {class: 'col-right rep-update'}, '2020-05-27 12:00:00'))));
 
-const container = elFactory('div', {calss: 'container'},
-  elFactory('section', {id: 'header'},
-    elFactory('p', {}, 'HYF Repositories'),
-    elFactory('select', {calss: 'selectMenu'},
-    elFactory('option', {value: ''}, 'alumni'))),
-  elFactory('div', {class: 'bottom-box'},
-    elFactory('section', {id: 'left-side'},
-      elFactory('div', {calss: 'card'},
-        elFactory('table', {},
-          elFactory('tr', {},
-            elFactory('td', {class: 'col-left'}, 'Repositories: '),
-            elFactory('td', {class: 'col-right rep-text'}, elFactory('a', {href: '#', class: 'repo-link'}, 'SampleRepo1')) ),
-          elFactory('tr', {},
-            elFactory('td', {class: 'col-left'}, 'Description: '),
-            elFactory('td', {class: 'col-right rep-description'}, 'Lorem ipsom')),
-          elFactory('tr', {},
-            elFactory('td', {class: 'col-left'}, 'Forks: '),
-            elFactory('td', {class: 'col-right rep-fork'}, '5')),
-          elFactory('tr', {},
-            elFactory('td', {class: 'col-left'}, 'Update: '),
-            elFactory('td', {class: 'col-right rep-update'}, '2020-05-27 12:00:00'))))))
-    );
+const rightSide = elFactory('section', {id: 'right-side'},
+  elFactory('div', {id: 'contributor'}, 'Contributors'),
+  elFactory('div', {class: 'card samll-card'},
+    elFactory('img', {src: 'https://avatars3.githubusercontent.com/u/3985124?v=4', calss: 'userPhoto', width: '50px'}),
+    elFactory('a', {href: '', class: 'userName'}, 'Isabela'),
+    elFactory('div', {class: 'badge'}, '9')))
 
-  console.log(container);
-const select = container.querySelector('select')
-const para = container.querySelector('p')
-console.log(para)
-
-
-const header = container.querySelector('p')
-
-
+container.appendChild(header);
+bottomBox.appendChild(leftSide);
+bottomBox.appendChild(rightSide)
+container.appendChild(bottomBox);
 document.body.appendChild(container)
+console.log(container)
+
+
+// const container = elFactory('div', {calss: 'container'},
+//   elFactory('section', {id: 'header'},
+//     elFactory('p', {}, 'HYF Repositories'),
+//     elFactory('select', {calss: 'selectMenu'},
+//     elFactory('option', {value: ''}, 'alumni'))),
+//   elFactory('div', {class: 'bottom-box'},
+//     elFactory('section', {id: 'left-side'},
+//       elFactory('div', {calss: 'card'},
+//         elFactory('table', {},
+//           elFactory('tr', {},
+//             elFactory('td', {class: 'col-left'}, 'Repositories: '),
+//             elFactory('td', {class: 'col-right rep-text'}, elFactory('a', {href: '#', class: 'repo-link'}, 'SampleRepo1')) ),
+//           elFactory('tr', {},
+//             elFactory('td', {class: 'col-left'}, 'Description: '),
+//             elFactory('td', {class: 'col-right rep-description'}, 'Lorem ipsom')),
+//           elFactory('tr', {},
+//             elFactory('td', {class: 'col-left'}, 'Forks: '),
+//             elFactory('td', {class: 'col-right rep-fork'}, '5')),
+//           elFactory('tr', {},
+//             elFactory('td', {class: 'col-left'}, 'Update: '),
+//             elFactory('td', {class: 'col-right rep-update'}, '2020-05-27 12:00:00'))))))
+//     );
+
+//   console.log(container);
+// const select = container.querySelector('select')
+// const para = container.querySelector('p')
+// console.log(para)
+
+
+
+
+
+
 
 
 
