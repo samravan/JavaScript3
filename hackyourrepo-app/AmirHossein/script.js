@@ -26,9 +26,11 @@ const header = elFactory('section', {id: 'header'},
   elFactory('select', {calss: 'selectMenu'}),
   elFactory('option', {value: ''}, 'alumni'));
 const bottomBox = elFactory('div', {class: 'bottom-box'});
-const leftSide = elFactory('section', {id: 'left-side'},
-  elFactory('div', {calss: 'card'},
-    elFactory('table', {}),
+const leftSide = elFactory('section', {id: 'left-side'})
+
+
+const card = elFactory('div', {calss: 'card'},
+    elFactory('table', {},
       elFactory('tr', {},
         elFactory('td', {class: 'col-left'}, 'Repositories: '),
         elFactory('td', {class: 'col-right rep-text'}, elFactory('a', {href: '#', class: 'repo-link'}, 'SampleRepo1'))),
@@ -42,13 +44,16 @@ const leftSide = elFactory('section', {id: 'left-side'},
         elFactory('td', {class: 'col-left'}, 'Update: '),
         elFactory('td', {class: 'col-right rep-update'}, '2020-05-27 12:00:00'))));
 
+
 const rightSide = elFactory('section', {id: 'right-side'},
-  elFactory('div', {id: 'contributor'}, 'Contributors'),
-  elFactory('div', {class: 'card samll-card'},
+  elFactory('div', {id: 'contributor'}, 'Contributors'));
+const smallCard = elFactory('div', {class: 'card samll-card'},
     elFactory('img', {src: 'https://avatars3.githubusercontent.com/u/3985124?v=4', calss: 'userPhoto', width: '50px'}),
     elFactory('a', {href: '', class: 'userName'}, 'Isabela'),
-    elFactory('div', {class: 'badge'}, '9')))
+    elFactory('div', {class: 'badge'}, '9'));
 
+leftSide.appendChild(card)
+rightSide.appendChild(smallCard)
 container.appendChild(header);
 bottomBox.appendChild(leftSide);
 bottomBox.appendChild(rightSide)
