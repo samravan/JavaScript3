@@ -49,15 +49,20 @@ const card = elFactory('div', {calss: 'card'},    // Leftside table
         elFactory('td', {class: 'col-left'}, 'Update: '),
         elFactory('td', {class: 'col-right rep-update'}, '2020-05-27 12:00:00'))));
 
-const rightSide = elFactory('section', {id: 'right-side'},
-  elFactory('div', {id: 'contributor'}, 'Contributors'));
-const smallCard = elFactory('div', {class: 'card samll-card'},
-    elFactory('img', {src: 'https://avatars3.githubusercontent.com/u/3985124?v=4', calss: 'userPhoto', width: '50px'}),
-    elFactory('a', {href: '', class: 'userName'}, 'Isabela'),
-    elFactory('div', {class: 'badge'}, '9'));
+
+        const rightSide = elFactory('section', {id: 'right-side'},
+        elFactory('div', {id: 'contributor'}, 'Contributors'));
+
+// const smallCard = elFactory('div', {class: 'card samll-card'},
+//     elFactory('img', {src: '', calss: 'userPhoto', width: '50px'}),
+//     elFactory('a', {href: '', class: 'userName'}, ''),
+//     elFactory('div', {class: 'badge'}, ''));
+
+
+
 
 leftSide.appendChild(card);
-rightSide.appendChild(smallCard);
+// rightSide.appendChild(smallCard);
 container.appendChild(header);
 bottomBox.appendChild(leftSide);
 bottomBox.appendChild(rightSide)
@@ -65,7 +70,6 @@ container.appendChild(bottomBox);
 document.body.appendChild(container)
 
 const select = header.querySelector('select');
-
 
 
 
@@ -78,41 +82,67 @@ function addrepoNames(data) {
     select.appendChild(option);
   });
 
+
+
+
   select.addEventListener('input', () => {
+
+    rightSide.innerHTML = ''
+
     data.forEach(element => {
-        if(select.value === element.name) {
-          const repoDescription = card.querySelector('.rep-description');
-          repoDescription.innerHTML = element.description;
-          const repoName = card.querySelector('.repo-link');
-          repoName.innerHTML = element.name;
-          repoName.href = element.html_url;
-          const forks = card.querySelector('.rep-fork');
-          forks.innerHTML = element.forks;
-          const update = card.querySelector('.rep-update');
-          update.innerHTML = element.updated_at;
-          const smallCard = elFactory('div', {class: 'card samll-card'},
-            elFactory('img', {src: 'https://avatars3.githubusercontent.com/u/3985124?v=4', calss: 'userPhoto', width: '50px'}),
-            elFactory('a', {href: '', class: 'userName'}, 'Isabela'),
-            elFactory('div', {class: 'badge'}, '9'));
-            const contributorsUrl = element.contributors_url;
-            fetch(contributorsUrl)
-            .then(response => response.json())
-            .then(data2 => console.log(data2))
-            // image.src = ''
-            // fetch(pokUrl)
-            // .then(response => response.json())
-            // .then(data => {
-            //     image.src = data.sprites.front_default;
-            //     document.body.appendChild(image);
-            // })
-            // .catch(error => console.log(error))
-        }
+
+      if(select.value === element.name) {
+        const repoDescription = card.querySelector('.rep-description');
+        const repoName = card.querySelector('.repo-link');
+        const forks = card.querySelector('.rep-fork');
+        const update = card.querySelector('.rep-update');
+        repoDescription.innerHTML = element.description;
+        repoName.innerHTML = element.name;
+        repoName.href = element.html_url;
+        forks.innerHTML = element.forks;
+        update.innerHTML = element.updated_at;
+
+
+
+        const contributorsUrl = element.contributors_url;
+        console.log(contributorsUrl);
+
+        fetch(contributorsUrl)
+        .then(response => response.json())
+        .then(data2 => {
+          console.log(data2)
+          data2.forEach(element2 => {
+
+            const smallCard = elFactory('div', {class: 'card samll-card'},
+            elFactory('img', {src: '', calss: 'userPhoto', width: '50px'}),
+            elFactory('a', {href: '', class: 'userName'}, ''),
+            elFactory('div', {class: 'badge'}, ''));
+
+            const userName = smallCard.querySelector('.userName');
+            const image = smallCard.querySelector('img');
+            const badge = smallCard.querySelector('.badge');
+            image.src = element2.avatar_url;
+            userName.innerHTML = element2.login;
+            userName.href = element2.html_url;
+            badge.innerHTML = element2.contributions;
+
+            rightSide.appendChild(smallCard)
+
+          })
+
+
+          })
+
+          // .catch(error => console.log(error))
+      }
 
 
     })
   })
 
 };
+
+
 
 function fetchData(url) {
 

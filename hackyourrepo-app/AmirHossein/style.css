@@ -7,6 +7,11 @@
   box-sizing: border-box;
 
 }
+.container {
+  width: 80%;
+  margin: 0 auto;
+
+}
 
 #header {
   color: white;
@@ -17,15 +22,12 @@
   padding: 20px;
 
 }
+
+
+
+
 p {
   margin-right: 30px;
-}
-
-.container {
-  width: 80%;
-  margin: 0 auto;
-
-
 }
 
 .bottom-box {
@@ -62,6 +64,7 @@ p {
   width: 50%;
 }
 
+
 #contributor {
   margin-top: 10px;
   margin-left:0.4rem;
@@ -73,6 +76,7 @@ p {
   border-bottom: none;
   height: 3em;
 }
+
 .small-card {
   display: flex;
   border: 3px solid black;
