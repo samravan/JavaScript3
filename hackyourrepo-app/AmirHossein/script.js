@@ -49,9 +49,11 @@ const card = elFactory('div', {calss: 'card'},    // Leftside table
         elFactory('td', {class: 'col-left'}, 'Update: '),
         elFactory('td', {class: 'col-right rep-update'}, '2020-05-27 12:00:00'))));
 
+const rightSide = elFactory('section', {id: 'right-side'},
+  elFactory('div', {id: 'contributor'}, 'Contributors'));
 
-        const rightSide = elFactory('section', {id: 'right-side'},
-        elFactory('div', {id: 'contributor'}, 'Contributors'));
+const cardName = elFactory('div', {id: 'cardNameBox'});
+
 
 // const smallCard = elFactory('div', {class: 'card samll-card'},
 //     elFactory('img', {src: '', calss: 'userPhoto', width: '50px'}),
@@ -61,20 +63,19 @@ const card = elFactory('div', {calss: 'card'},    // Leftside table
 
 
 
-leftSide.appendChild(card);
-// rightSide.appendChild(smallCard);
+
 container.appendChild(header);
 bottomBox.appendChild(leftSide);
-bottomBox.appendChild(rightSide)
+bottomBox.appendChild(rightSide);
+leftSide.appendChild(card);
+rightSide.appendChild(cardName);
 container.appendChild(bottomBox);
 document.body.appendChild(container)
 
 const select = header.querySelector('select');
 
 
-
 function addrepoNames(data) {
-
   data.forEach(element => {
     const option = elFactory('option', {value: ''})
     option.innerHTML = element.name;
@@ -86,8 +87,9 @@ function addrepoNames(data) {
 
 
   select.addEventListener('input', () => {
-
-    rightSide.innerHTML = ''
+    // let rightSide = elFactory('section', {id: 'right-side'},
+    //     elFactory('div', {id: 'contributor'}, 'Contributors'));
+    cardName.innerHTML = ''
 
     data.forEach(element => {
 
@@ -126,7 +128,7 @@ function addrepoNames(data) {
             userName.href = element2.html_url;
             badge.innerHTML = element2.contributions;
 
-            rightSide.appendChild(smallCard)
+            cardName.appendChild(smallCard)
 
           })
 
