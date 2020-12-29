@@ -1,7 +1,5 @@
-//Calling main function after window load
 window.onload = main;
 
-//Define main function
 function main() {
   //Create header element and its children
   const header = document.createElement('header');
@@ -92,9 +90,8 @@ function fetchRepoList(selectElement, bodyTable, contributersSection) {
     });
 };
 
-
 function addDataToDOM(data, selectElement, bodyTable, contributersSection) {
-  selectElement.addEventListener('input', () => {
+  selectElement.addEventListener('change', () => {
     contributersSection.innerHTML = '';
     data.forEach(element => {
       if (element.name == selectElement.value) {
