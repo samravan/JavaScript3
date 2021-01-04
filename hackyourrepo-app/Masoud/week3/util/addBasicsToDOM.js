@@ -1,6 +1,4 @@
-import { fetchRepoList } from './fetchRepoList.js';
-
-export function main() {
+export function addBasicsToDOM() {
   //Create header element and its children
   const header = document.createElement('header');
   const imgLink = document.createElement('a');
@@ -57,6 +55,5 @@ export function main() {
   contributersSection.classList.add('contributers');
   desconElement.appendChild(contributersSection);
 
-  //Get repository data
-  fetchRepoList(selectElement, bodyTable, contributersSection);
-};
+  return { selectElement, bodyTable, contributersSection };
+}
