@@ -13,6 +13,7 @@ export function main() {
   const selectElement = elements.selectElement;
   const contributersSection = elements.contributersSection;
   const bodyTable = elements.bodyTable;
+  const buttonArea = elements.buttonArea;
 
   const url = 'https://api.github.com/orgs/HackYourFuture/repos?per_page=100';
 
@@ -20,7 +21,7 @@ export function main() {
     addListToDOM(myJson, selectElement);
 
     selectElement.addEventListener('change', () => {
-      contributersSection.innerHTML = '';
+
 
       myJson.forEach(element => {
         if (element.name == selectElement.value) {
@@ -29,7 +30,7 @@ export function main() {
           const url = element.contributors_url;
 
           fetchData(url).then(myJson => {
-            addContributersToDOM(myJson, contributersSection);
+            addContributersToDOM(myJson, contributersSection, buttonArea);
           })
             .catch(error => {
               displayError(error);

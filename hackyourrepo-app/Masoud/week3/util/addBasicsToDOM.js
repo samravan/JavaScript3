@@ -55,5 +55,9 @@ export function addBasicsToDOM() {
   contributersSection.classList.add('contributers');
   desconElement.appendChild(contributersSection);
 
-  return { selectElement, bodyTable, contributersSection };
+  const buttonArea = document.createElement('div');
+  buttonArea.classList.add('button-area');
+  descriptionSection.appendChild(buttonArea);
+
+  return { selectElement, bodyTable, contributersSection, buttonArea };
 }

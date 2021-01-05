@@ -1,22 +1,16 @@
-export function addContributersToDOM(data, contributersSection) {
-  data.forEach(element => {
-    const contItem = document.createElement('div');
-    const image = document.createElement('img');
-    const link = document.createElement('a');
-    const gitName = document.createElement('h3');
-    const contributionsNum = document.createElement('h4');
+import { showContributersPageOne } from './showContributersPageOne.js';
+import { showContributers } from './showContributers.js';
+import { addButtonsToDOM } from './addButtonsToDOM.js';
+import { changeArrayToIndex } from './changeArrayToIndex.js';
 
-    link.appendChild(image);
-    contItem.appendChild(link);
-    contItem.appendChild(gitName);
-    contItem.appendChild(contributionsNum);
-    contributersSection.appendChild(contItem);
+export function addContributersToDOM(data, contributersSection, buttonArea) {
 
-    link.style.width = '100px'
-    link.href = element.html_url;
-    image.src = element.avatar_url;
-    gitName.textContent = element.login;
-    contributionsNum.textContent = element.contributions;
-    contItem.classList.add('items');
-  })
+  buttonArea.innerHTML = '';
+  const dataArray = changeArrayToIndex(data);
+  for (let i = 0; i < Math.ceil(data.length / 5); i++) {
+    const button = addButtonsToDOM(buttonArea, i);
+    showContributersPageOne(contributersSection, dataArray, data);
+    showContributers(contributersSection, dataArray, data, button, i);
+  }
 }
+

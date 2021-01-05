@@ -79,20 +79,37 @@ img{
 }
 
 .contributers img{
-  width: 100%;
+  width: 80%;
   border-radius: 50%;
 }
 
 .items {
   display: flex;
  justify-content: space-between;
- padding: 5px 15px;
- margin: 5px;
+ padding: 0 15px;
+ height: 20%;
  align-items: center;
 }
 
 table{
   border-spacing: 10px;
+}
+
+.button-area{
+  text-align: center;
+  margin-top: 30%;
+  
+}
+
+.button {
+  padding: 5px;
+  margin: 1px;
+  background-color:  rgb(252, 103, 49);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 20px;
 }
 
 @media only screen and (max-width:550px){
