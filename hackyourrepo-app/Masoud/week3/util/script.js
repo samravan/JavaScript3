@@ -22,7 +22,6 @@ export function main() {
 
     selectElement.addEventListener('change', () => {
 
-
       myJson.forEach(element => {
         if (element.name == selectElement.value) {
           addDescriptionToDOM(bodyTable, element);
