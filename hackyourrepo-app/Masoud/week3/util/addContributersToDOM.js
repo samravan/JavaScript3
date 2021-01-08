@@ -3,6 +3,7 @@ import { showContributers } from './showContributers.js';
 import { addButtonsToDOM } from './addButtonsToDOM.js';
 import { changeArrayToIndex } from './changeArrayToIndex.js';
 import { addContributerToDOM } from './addContributerToDOM.js';
+
 export function addContributersToDOM(data, contributersSection, buttonArea) {
 
   buttonArea.innerHTML = '';
